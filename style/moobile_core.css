@@ -1786,5 +1786,9 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
     outline: 0 !important;
 }
 
+#categoryquestions .checkbox {
+    width: auto;
+}
+
 /** Custom CSS **/
 [[setting:customcss]]
