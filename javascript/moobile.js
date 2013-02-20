@@ -141,7 +141,7 @@ $('div').live('pagebeforecreate', function() {
     });
 });
 
-//collapsed topic only stuff
+// Collapsed topic only stuff.
 $('div#page-course-view-topcollPAGE').live('pagebeforecreate', function() {
     "use strict";
 

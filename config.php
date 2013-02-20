@@ -32,7 +32,7 @@ $THEME->name = 'moobile';
 // This theme relies on canvas and of course base themes
 $THEME->parents = array(
     'canvas',
-    'base',
+    'base'
 );
 
 // Set the stylesheets that we want to include for this theme
@@ -51,12 +51,18 @@ $THEME->parents_exclude_sheets = array(
         'pagelayout',
         'dock',
         'editor',
+		'admin'
     ),
     'canvas' => array(
         'pagelayout',
         'tabs',
         'editor',
-    ),
+		'admin'
+    )
+);
+
+$THEME->plugins_exclude_sheets = array(
+    'mod' => array('resource')
 );
 
 // Disable the dock - this theme does not support it.
