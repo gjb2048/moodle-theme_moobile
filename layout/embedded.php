@@ -70,14 +70,6 @@ echo $OUTPUT->doctype() ?>
             <?php echo $OUTPUT->main_content(); ?>
         </div>
     <?php } ?>
-
-        <!-- empty divs with info for the JS to use -->
-        <div id="<?php echo sesskey(); ?>" class="mobilesession"></div>
-        <div id="<?php p($CFG->wwwroot); ?>" class="mobilesiteurl"></div>
-        <div id="<?php echo $dtheme;?>" class="datatheme"></div>
-        <div id="page-footer"><!-- empty page footer needed by moodle yui for embeds --></div>
-        <!-- end js divs -->
-
         <!-- START OF FOOTER -->
         <?php echo $OUTPUT->standard_end_of_body_html() ?>
     </div>

@@ -184,6 +184,16 @@ $('div.path-course-view, .path-course-view div.generalpage').live('pagebeforecre
         this.form.submit();
         return false;
     });
+
+	$('.contentafterlink a.autolink').each(function() {
+	    // Clone us such that the split list button remains the same after the strip.
+	    var us = $(this).clone();
+		$(this).parent().append(us);
+	    // Strip out the inner 'a.autolink' of a 'p' on a 'contentafterlink' such that descriptions are shown.
+	    $(this).replaceWith(function() {
+		    return $(this).contents();
+		});
+	});
 });
 
 // Forum listing only stuff.
@@ -247,6 +257,17 @@ $('div#page-site-indexPAGE').live('pageinit', function() {
             $(this).find('a').append('<span class="ui-li-count ui-btn-up-a ui-btn-corner-all">' + ggb + '</span>');
         }
     });
+});
+
+// Coursepage only stuff.
+$('div#page-course-indexPAGE').live('pagebeforecreate', function() {
+    "use strict";
+    // Course boxes on category pages and course page stuff.
+    $('div.subscribelink a').attr("data-role", "button").attr("data-inline", "true");
+    $('.unlist').attr("data-role", "controlgroup");
+    $('.unlist li:last-child div.coursebox h3 a').addClass("ui-corner-bottom ui-controlgroup-last");
+    $('div.coursebox a').attr("data-role", "button").attr("data-icon", "arrow-r").attr("data-iconpos", "right").attr("data-theme", dtheme);
+    $('.box.categorybox').attr("data-role", "controlgroup");
 });
 
 // Chat only stuff.
@@ -353,7 +374,7 @@ $('body').live('pageinit', function() {
     if ($('body').hasClass('ajaxno')) {
         $.mobile.ajaxEnabled = false;
     }
-
+	
     $('div#page-site-indexPAGE .unlist li:last-child div.coursebox h3 a').addClass("ui-corner-bottom ui-controlgroup-last");
     $('.path-calendar div.ui-radio label:first-child, .path-mod-lesson div.ui-radio label:first-child, #page-mod-wiki-createPAGE div.ui-radio label:first-child').addClass("afirst");
     $('.forumpost div.author a').removeAttr('data-role');

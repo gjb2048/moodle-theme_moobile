@@ -29,7 +29,6 @@
 
 body {
     line-height: inherit;
-    background: #dddddd;
 }
 html {
     height: 100%;
@@ -40,7 +39,7 @@ body {
     height: 100%;
 }
 p {
-    margin: 0 0 0.5em;
+    margin: 0.25em 0 0.25em;
 }
 h3, h1, h2 {
     line-height: inherit;
@@ -49,8 +48,8 @@ ul {
     margin: 0;
 }
 /* a few ui overrides */
-.ui-body-a legend.ftoggler {
-    color: #fff;
+.ui-body legend.ftoggler {
+    color: inherit;
     border-bottom: none;
 }
 #page-site-indexPAGE .ui-content .ui-controlgroup {
@@ -58,9 +57,9 @@ ul {
     padding: 0;
 }
 .headingblock {
-    border-bottom:0px solid #DDDDDD;
-    color:inherit;
-    font-size:inherit;
+    border-bottom: 0px none transparent;
+    color: inherit;
+    font-size: inherit;
 }
 h1.helpheading {
     font-size: 1.6em;
@@ -161,7 +160,7 @@ div.notifyproblem {
     font-size: 90%;
     /* Fallback for web browsers that doesn't support RGBa */
     background: rgb(255, 255, 255) transparent;
-    /* RGBa with 0.4 opacity */
+    /* RGBa */
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4);
 }
 #underfooter .logininfo  {
@@ -414,7 +413,7 @@ form.togglecompletion input {
     height: 23px;
 }
 .section li .contentafterlink .ui-li-desc {
-    margin: .5em 1em;
+    margin: 0.5em 0em;
 }
 .topics .content, .weeks .content {
     padding-left: 0px !important;
@@ -488,7 +487,7 @@ li.label .no-overflow ul, li.label .no-overflow ul li {
     margin: 0px;
 }
 .section.hidden, .section.hidden a {
-    color: #aaaaaa !important;
+    color: inherit !important;
 }
 .label div.no-overflow {
     overflow:inherit !important;
@@ -572,7 +571,12 @@ input[name="mailnow"] {
     margin: 0 0 .4em;
 }
 .loginbox .loginform .form-input #username, .loginbox .loginform .form-input #password {
-    border: 1px solid #ccc !important;
+    border-width: 1px !important;
+	border-style: solild !important;
+    /* Fallback for web browsers that doesn't support RGBa */
+    border-color: rgb(255, 255, 255) transparent !important;
+    /* RGBa */
+    border-color: rgba(255, 255, 255, 0.5) !important;	
     color: inherit !important;
     font-family: inherit !important;
     font-size: 16px !important;
@@ -652,7 +656,12 @@ input[name="mailnow"] {
 table.forumheaderlist2 td.topic a {
     padding: 10px;
     padding-right: 17px;
-    border-top: 1px solid #666;
+    border-top-width: 1px;
+    border-top-style: solid;
+    /* Fallback for web browsers that doesn't support RGBa */
+    border-top-color: rgb(255, 255, 255) transparent !important;
+    /* RGBa */
+    border-top-color: rgba(255, 255, 255, 0.3) !important;	
 }
 .forumheaderlist th, .forumheaderlist td {
     padding: 0px;
@@ -749,7 +758,7 @@ div.discussioncontrols {
     margin: 0px;
 }
 .loginbox .guestsub {
-    border-top:0px solid #DDDDDD;
+    border-top: 0px none inherit;
     margin: 0px;
 }
 .loginbox .loginform {
@@ -923,12 +932,6 @@ table.quizattemptsummary .bestrow, table.quizattemptsummary .bestrow td {
 .questionflag div.ui-checkbox {
     display: inline;
 }
-.answer .control label.ui-btn-up-a .ui-btn-text span {
-    color: #fff !important;
-}
-.answer .control label.ui-btn-up-a.ui-btn-active .ui-btn-text span {
-    color: #000 !important;
-}
 /* other modules */
 div#page-mod-data-viewPAGE img.iconsmall, #page-mod-glossary-viewPAGE img.iconsmall, #page-mod-data-view .approve img.icon {
     height: 22px;
@@ -954,8 +957,10 @@ table.generaltable {
 }
 /*odd row highlight */
 .generaltable tbody tr.r0, .flexible tbody tr.r0  {
-    background: #eee;
-    color: #333;
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(255, 255, 255) transparent !important;
+    /* RGBa */
+    background: rgba(255, 255, 255, 0.2) !important;
 }
 .glossarycategoryheader {
     width: 100%;
@@ -1525,7 +1530,7 @@ a.comment-link, .block_comments a.showcommentsnonjs, .block_comments .comment-ar
     /* From: http://stackoverflow.com/questions/806000/css-semi-transparent-background-but-not-text */
     /* Fallback for web browsers that doesn't support RGBa */
     background: rgb(0, 0, 0) transparent;
-    /* RGBa with 0.6 opacity */
+    /* RGBa */
     background: rgba(0, 0, 0, 0.3);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
@@ -1542,20 +1547,36 @@ a.comment-link, .block_comments a.showcommentsnonjs, .block_comments .comment-ar
 .ui-header .ui-navbar {
     background:             #eee;
     background-image: -moz-linear-gradient(top,
-        #fefefe,
-        #e7e7e7);
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1));
     background-image: -webkit-gradient(linear,left top,left bottom,
-        color-stop(0,       #fdfdfd),
-        color-stop(1,       #e7e7e7));
+        color-stop(0,       rgba(255, 255, 255, 0.3)),
+        color-stop(1,       rgba(255, 255, 255, 0.1)));
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fdfdfd', EndColorStr='#eeeeee')";
-    border-top: 1px solid #666;
-    -webkit-box-shadow: inset 0px 1px 1px #fff;
-    -moz-box-shadow: inset 0px 1px 1px #fff;
-    box-shadow: inset 0px 1px 1px #fff;
+    /* Fallback for web browsers that doesn't support RGBa */
+    background-color: rgb(255, 255, 255) transparent !important;
+    /* RGBa */
+    background-color: rgba(255, 255, 255, 0.3) !important;	
+    border-top: 1px solid rgb(255, 255, 255) transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);	
+    -webkit-box-shadow: inset 0px 1px 1px rgb(255, 255, 255) transparent;
+    -moz-box-shadow: inset 0px 1px 1px rgb(255, 255, 255) transparent;
+    box-shadow: inset 0px 1px 1px rgb(255, 255, 255) transparent;
+    -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.4);
+    -moz-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.4);
 }
-.ui-bar-a.ui-header, .ui-bar-b.ui-header {
-    border-bottom: 1px solid #ccc;
+
+.ui-header .ui-navbar .ui-btn-inner {
+	border-top: 0px none transparent !important;
 }
+
+.ui-header .ui-navbar .ui-btn-corner-all {
+    -webkit-border-radius: 0em 0em 0em 0em !important;
+    -moz-border-radius: 0em 0em 0em 0em !important;
+    border-radius: 0em 0em 0em 0em !important;
+}
+
 .ui-navbar .ui-select {
     width: 100% !important;
     display: block !important;
@@ -1571,19 +1592,25 @@ a.comment-link, .block_comments a.showcommentsnonjs, .block_comments .comment-ar
     padding-left: 5px;
 }
 .ui-header .ui-navbar li .ui-btn {
-    -webkit-border-radius:              .4em /*{global-radii-blocks}*/;
-    -webkit-border-radius:  .4em .4em .4em .4em;
+    /*-webkit-border-radius:              .4em /*{global-radii-blocks}*/;
+    /*-webkit-border-radius:  .4em .4em .4em .4em;
     -moz-border-radius:  .4em .4em .4em .4em;
     border-radius: .4em .4em .4em .4em;
     border: 1px solid #ccc !important;
-    border-top: 1px solid #aaa !important;
+    border-top: 1px solid #aaa !important; */
+	border-width: 1px !important;
+	border-style: solid !important;
+    /* Fallback for web browsers that doesn't support RGBa */
+    border-color: rgb(255, 255, 255) transparent !important;
+    /* RGBa */
+    border-color: rgba(255, 255, 255, 0.45) !important;		
     margin: .4em;
     margin-left: .4em;
     margin-right: 0em;
-    -webkit-box-shadow: 1px 1px 1px #fff, inset 1px 1px 1px #eee;
+    /*-webkit-box-shadow: 1px 1px 1px #fff, inset 1px 1px 1px #eee;
     -moz-box-shadow: 1px 1px 1px #fff, inset 1px 1px 1px #eee;
     box-shadow: 1px 1px 1px #fff, inset 1px 1px 1px #eee;
-    text-shadow: 0 1px 1px #FFFFFF;
+    text-shadow: 0 1px 1px #FFFFFF; */
 }
 .ui-header .ui-navbar li:last-child .ui-btn {
     margin-right: .4em;
@@ -1818,6 +1845,19 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
 .resourcelinkdetails {
     font-size: 0.8em;
     padding-left: 45px;
+}
+
+.mform .fdescription.required {
+    color: inherit;
+}
+
+.answer .control label .ui-btn-text span {
+    color: rgb(255, 255, 255) transparent !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+.answer .control label.ui-btn-active .ui-btn-text span {
+    color: rgb(255, 255, 255) transparent !important;
+    color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /** Custom CSS **/

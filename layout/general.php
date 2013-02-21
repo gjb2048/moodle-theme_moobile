@@ -141,13 +141,13 @@ echo $OUTPUT->doctype()
                 <div data-role="navbar">
                     <ul>
                         <?php if (!$gowide && !$hasmyblocks && !$toblock && $mypagetype == "mod-quiz-attempt" || !$gowide && !$hasmyblocks && !$toblock && $mylayoutype != "incourse") { ?>
-                            <li><a data-theme="<?php echo $dtheme; ?>" class="blockload" href="<?php echo $urlblocks->out(); ?>"><?php p(get_string('blocks')); ?></a></li>
+                            <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all blockload" href="<?php echo $urlblocks->out(); ?>"><?php p(get_string('blocks')); ?></a></li>
                         <?php } ?>
                         <?php if (!$toset) { ?>
-                            <li><a data-theme="<?php echo $dtheme; ?>" href="<?php echo $urlsettings->out(); ?>"><?php p(get_string('settings')); ?></a></li>
+                            <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all" href="<?php echo $urlsettings->out(); ?>"><?php p(get_string('settings')); ?></a></li>
                         <?php } ?>
                         <?php if ($jumptocurrent == 'true' && !$toblock && !$toset) { ?>
-                            <li><a data-theme="<?php echo $dtheme; ?>" class="jumptocurrent" href="#"><?php p(get_string('jump')); ?></a></li>
+                            <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all jumptocurrent" href="#"><?php p(get_string('jump')); ?></a></li>
 <?php } ?>
 <?php if (isloggedin() && $hasnavbar) { ?>
                             <li><?php echo $OUTPUT->navbar(); ?></li>
@@ -286,12 +286,6 @@ echo $OUTPUT->standard_footer_html();
 echo '</div>';
 ?>
             </div>
-
-            <!-- empty divs with info for the jQuery to use -->
-            <div id="<?php echo sesskey(); ?>" class="mobilesession"></div>
-            <div id="<?php p($CFG->wwwroot); ?>" class="mobilesiteurl"></div>
-            <div id="<?php echo $dtheme; ?>" class="datatheme"></div>
-            <!-- end jQuery divs -->
 
             <div id="page-footer"><!-- empty page footer needed by moodle yui for embeds --></div>
 
