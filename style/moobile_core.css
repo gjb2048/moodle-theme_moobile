@@ -1547,11 +1547,11 @@ a.comment-link, .block_comments a.showcommentsnonjs, .block_comments .comment-ar
 .ui-header .ui-navbar {
     background:             #eee;
     background-image: -moz-linear-gradient(top,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0.1));
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.7));
     background-image: -webkit-gradient(linear,left top,left bottom,
-        color-stop(0,       rgba(255, 255, 255, 0.3)),
-        color-stop(1,       rgba(255, 255, 255, 0.1)));
+        color-stop(0,       rgba(255, 255, 255, 0.9)),
+        color-stop(1,       rgba(255, 255, 255, 0.7)));
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fdfdfd', EndColorStr='#eeeeee')";
     /* Fallback for web browsers that doesn't support RGBa */
     background-color: rgb(255, 255, 255) transparent !important;
@@ -1855,9 +1855,15 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
     color: rgb(255, 255, 255) transparent !important;
     color: rgba(255, 255, 255, 0.6) !important;
 }
+
 .answer .control label.ui-btn-active .ui-btn-text span {
     color: rgb(255, 255, 255) transparent !important;
     color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.path-mod-lesson .firstpageoptions {
+    margin-left: 0;
+	width: 100%;
 }
 
 /** Custom CSS **/

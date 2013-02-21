@@ -367,6 +367,33 @@ $('#page-mod-book-viewPAGE').live('pagebeforecreate', function() {
     });
 });	
 
+// Choice only stuff.
+$('#page-mod-choice-viewPAGE').live('pagebeforecreate', function() {
+    $('.reportlink a').attr('data-role', 'button');
+});
+	
+//$('#page-mod-choice-reportPAGE').live('pagebeforecreate', function() {
+//    $('.user input').each( function(){
+//	   var 
+//	});
+//});
+
+// Lesson only stuff.
+$('#page-mod-lesson-editPAGE').live('pagebeforecreate', function() {
+    $('.firstpageoptions a').attr('data-role', 'button');
+	$('.addlinks').attr('data-role', 'controlgroup').attr('data-mini', 'true').attr('data-type', 'horizontal').attr('data-mini', 'true');
+	
+	// Strip out the text dividers between the 'a' tags.
+	$('.addlinks').each(function() {
+        var $children = $(this).children();
+        $(this).html("").append($children);
+	});
+
+	$('.addlinks a').each(function() {
+        $(this).attr('data-role', 'button');
+	});
+});
+
 // Functions below does stuff after creating page for some cleaning...
 $('body').live('pageinit', function() {
     "use strict";
