@@ -1863,7 +1863,11 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
 
 .path-mod-lesson .firstpageoptions {
     margin-left: 0;
-	width: 100%;
+    width: 100%;
+}
+
+.unlist, .unlist li, .inline-list, .inline-list li, .block .list, .block .list li, .sitetopic .section li.activity, .course-content .section li.activity, .tabtree li {
+    padding: 5px;
 }
 
 /** Custom CSS **/
