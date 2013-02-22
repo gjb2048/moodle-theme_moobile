@@ -74,4 +74,4 @@ if (typeof jQuery != 'undefined') {
 // Load the rest...
 IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-migrate-1.1.0.min.js'); // Needed to support $.browser.msie in jquery-1.9.1.min above to support IE 6/7/8.
 IncludeJavaScript(wwwroot+'/theme/moobile/javascript/moobile.js');
-IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery.mobile-1.2.0.min.js');
+IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery.mobile-1.2.0_moobile.js');

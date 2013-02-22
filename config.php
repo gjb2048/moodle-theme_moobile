@@ -177,7 +177,7 @@ $THEME->javascripts = array(
     'jquery-1.9.1.min',
     'jquery-migrate-1.1.0.min', // Needed to support $.browser.msie in jquery-1.9.1.min above to support IE 6/7/8
     'moobile',
-    'jquery.mobile-1.2.0.min'
+    'jquery.mobile-1.2.0_moobile'
 );
 
 // Sets a custom render factory to use with the theme, used when working with custom renderers.
