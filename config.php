@@ -39,7 +39,7 @@ $THEME->parents = array(
 $THEME->sheets = array(
     'moobile_font',
     'moobile',
-    'jquery_mobile_structure_moobile',
+    'jquery_mobile_structure-1_2_0',
     'moobile_rtl',
     'moobile_core',
     'moobile_media'
@@ -51,13 +51,13 @@ $THEME->parents_exclude_sheets = array(
         'pagelayout',
         'dock',
         'editor',
-		'admin'
+        'admin'
     ),
     'canvas' => array(
         'pagelayout',
         'tabs',
         'editor',
-		'admin'
+        'admin'
     )
 );
 
@@ -177,7 +177,7 @@ $THEME->javascripts = array(
     'jquery-1.9.1.min',
     'jquery-migrate-1.1.0.min', // Needed to support $.browser.msie in jquery-1.9.1.min above to support IE 6/7/8
     'moobile',
-    'jquery.mobile-1.2.0_moobile'
+    'jquery.mobile-1.2.0.min'
 );
 
 // Sets a custom render factory to use with the theme, used when working with custom renderers.

@@ -40,7 +40,7 @@ $THEME->parents = array(
 $THEME->sheets = array(
     'moobile_font',
     'moobile',
-    'jquery_mobile_structure_moobile',
+    'jquery_mobile_structure-1_2_0',
     'moobile_rtl',
     'moobile_core',
     'moobile_media'
@@ -52,13 +52,13 @@ $THEME->parents_exclude_sheets = array(
         'pagelayout',
         'dock',
         'editor',
-		'admin'
+        'admin'
     ),
     'canvas' => array(
         'pagelayout',
         'tabs',
         'editor',
-		'admin'
+        'admin'
     ),
 );
 
