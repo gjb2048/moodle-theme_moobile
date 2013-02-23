@@ -254,7 +254,7 @@ $('div#page-site-indexPAGE').live('pageinit', function() {
     $('div.categorylist div.category').each(function(index) {
         var ggb = $(this).find("span.numberofcourse").text().replace('(','').replace(')','');
         if (ggb !== "") {
-            $(this).find('a').append('<span class="ui-li-count ui-btn-up-a ui-btn-corner-all">' + ggb + '</span>');
+            $(this).find('a').append('<span class="ui-li-count ui-btn-corner-all">' + ggb + '</span>');
         }
     });
 });
