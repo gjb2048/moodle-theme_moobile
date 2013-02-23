@@ -39,6 +39,12 @@ Moobile was derived from the MyMobile theme and as a consequence has potentially
 in it.  I have endeavoured to eradicate as many problems as I have been able to discover.  However, it is 
 inevitable that flaws still remain.
 
+Course layout issues
+====================
+Whilst testing I imported a course that had a HTML block.  This contained HTML that somehow had become corrupted.
+This caused the layout to be broken.  The fix was to edit the block in a standard theme and resave it.  Somehow
+in the past there must have been a TinyMCE editor issue that has now been fixed.
+
 Reporting issues
 ================
 Before reporting an issue, please ensure that you are running the latest version for your release of Moodle and that
