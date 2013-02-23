@@ -174,8 +174,7 @@ if ($thisdevice == "default" || $thisdevice == "tablet" || optional_param('moobi
 
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
-    'jquery-1.9.1.min',
-    'jquery-migrate-1.1.0.min', // Needed to support $.browser.msie in jquery-1.9.1.min above to support IE 6/7/8
+    'jquery-1.8.2.min',
     'moobile',
     'jquery.mobile-1.2.0_moobile'
 );

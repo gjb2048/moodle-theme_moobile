@@ -53,25 +53,18 @@ function IncludeJavaScript(sURL) {
 };
 
 // Test
-//IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.9.1.min.js');
+//IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.8.2.min.js');
 
-// From: http://jquery-howto.blogspot.co.uk/2009/03/check-if-jqueryjs-is-loaded.html
 if (typeof jQuery != 'undefined') {
-    // jQuery is loaded.
     var versionstring = $().jquery;
-    if (versionstring !== '1.9.1') {
-        // Unload and reload...
-        // From: http://blog.nemikor.com/2009/10/03/using-multiple-versions-of-jquery/
-        // And : http://api.jquery.com/jQuery.noConflict/
+    if (versionstring !== '1.8.2') {
         jQuery.noConflict(true);
-        IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.9.1.min.js');
+        IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.8.2.min.js');
     }
 } else {
-    // jQuery is not loaded
-    IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.9.1.min.js');
+    IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-1.8.2.min.js');
 } 
 
 // Load the rest...
-IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery-migrate-1.1.0.min.js'); // Needed to support $.browser.msie in jquery-1.9.1.min above to support IE 6/7/8.
 IncludeJavaScript(wwwroot+'/theme/moobile/javascript/moobile.js');
 IncludeJavaScript(wwwroot+'/theme/moobile/javascript/jquery.mobile-1.2.0_moobile.js');
