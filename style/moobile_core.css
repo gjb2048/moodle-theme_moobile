@@ -1869,5 +1869,13 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
     margin: .6em 10% .8em; 
 }
 
+.red, .notifyproblem {
+    color: #dddddd;
+}
+
+.green, .notifysuccess {
+    color: #eeeeee;
+}
+
 /** Custom CSS **/
 [[setting:customcss]]
