@@ -167,8 +167,7 @@ class admin_setting_sliderselect extends admin_setting {
             $selecthtml .= '</select>';
         } else {
             global $PAGE, $CFG;
-            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery-1.9.1.min.js');
-            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery-migrate-1.1.0.js');
+            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery-1.8.2.min.js');
             $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery.bxslider/jquery.bxslider.min.js');
 
             $selecthtml = html_writer::start_tag('input', array('type' => 'text', 'style' => 'display:none;', 'id' => $this->get_id(), 'class' => $this->themename . $this->settingname . 'input', 'name' => $this->get_full_name(), 'value' => $data));

@@ -1883,5 +1883,10 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
     padding: 6px 0px 0px 6px;
 }
 
+.sitetopic .section li.activity, .course-content .section li.activity {
+    padding: 0px;
+    border-width: 0px;
+}
+
 /** Custom CSS **/
 [[setting:customcss]]
