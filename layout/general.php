@@ -124,19 +124,25 @@ echo $OUTPUT->doctype()
     <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses . ' ' . join(' ', $bodyclasses)) ?>" data-theme="<?php echo $dtheme; ?>">
         <?php echo $OUTPUT->standard_top_of_body_html() ?>
         <div id="<?php p($PAGE->bodyid) ?>PAGE" data-role="page" class="generalpage <?php echo 'ajaxedclass ';
-        p($PAGE->bodyclasses . ' ' . join(' ', $bodyclasses)); ?> <?php if ($hasmyblocks && $usercol) {
+        p($PAGE->bodyclasses . ' ' . join(' ', $bodyclasses));
+        ?> <?php
+        if ($hasmyblocks && $usercol) {
             echo 'has-myblocks';
-        } ?> " data-theme="<?php echo $dtheme; ?>" data-title="<?php p($SITE->shortname) ?>">
+        }
+        ?> " data-theme="<?php echo $dtheme; ?>" data-title="<?php p($SITE->shortname) ?>">
             <!-- start header -->
             <div data-role="header" data-theme="<?php echo $dtheme; ?>" class="moobileheader"> <!-- Implemented MDL-33934-2 as appropriate. -->
-                <h1><?php echo $PAGE->heading ?></h1>
+                <div class="headerlinks">
+                    <!-- a href="http://..../"><img src="<!-- ?php echo $OUTPUT->pix_url('', 'theme') ?>" /></a -->
+                </div>
                 <?php if (isloggedin() && $mypagetype != 'site-index') { ?>
                     <a class="ui-btn-right" data-icon="home" href="<?php p($CFG->wwwroot) ?>" data-iconpos="notext" data-ajax="false"><?php p(get_string('home')); ?></a>
-<?php
-} else if (!isloggedin()) {
-    echo $OUTPUT->login_info();
-}
-?>
+                    <?php
+                } else if (!isloggedin()) {
+                    echo $OUTPUT->login_info();
+                }
+                ?>
+                <h1><?php echo $PAGE->heading ?></h1>
                 <!-- start navbar -->
                 <div data-role="navbar">
                     <ul>
@@ -148,7 +154,7 @@ echo $OUTPUT->doctype()
                         <?php } ?>
                         <?php if ($jumptocurrent == 'true' && !$toblock && !$toset) { ?>
                             <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all jumptocurrent" href="#"><?php p(get_string('jump')); ?></a></li>
-<?php } ?>
+                        <?php } ?>
 <?php if (isloggedin() && $hasnavbar) { ?>
                             <li><?php echo $OUTPUT->navbar(); ?></li>
 <?php } ?>
@@ -163,11 +169,11 @@ echo $OUTPUT->doctype()
             <div data-role="content" class="moobilecontent" data-theme="<?php echo $dtheme; ?>">
                 <?php if ($toset) {  // If we get the true, that means load/show settings only. ?>
                     <h2 class="jsets"><?php p(get_string('settings')); ?></h2>
-    <?php
-    // Load lang menu if available.
-    echo $OUTPUT->lang_menu();
-    ?>
-                    <?php if (!$gowide) { ?>
+                    <?php
+                    // Load lang menu if available.
+                    echo $OUTPUT->lang_menu();
+                    ?>
+    <?php if (!$gowide) { ?>
                         <label for="mooeditor"><?php p(get_string('editortoggle', 'theme_moobile')); ?>:</label>
                         <select name="mooeditor" id="mooeditor" class="mooeditor notwide" data-role="slider" data-track-theme="<?php echo $dtheme; ?>">
                             <option value="on" >On</option>
@@ -175,43 +181,46 @@ echo $OUTPUT->doctype()
                         </select>
                     <?php } ?>
                     <ul data-role="listview" data-theme="<?php echo $dtheme; ?>" data-dividertheme="<?php echo $dtheme; ?>" data-inset="true" class="settingsul">
-    <?php echo $renderer->settings_tree($PAGE->settingsnav); ?>
+                    <?php echo $renderer->settings_tree($PAGE->settingsnav); ?>
                     </ul>
-                            <?php echo $OUTPUT->login_info(); ?>
-                        <?php } ?>
+    <?php echo $OUTPUT->login_info(); ?>
+                    <?php } ?>
 
                 <div class="content-primary">
-                    <div class="region-content <?php if ($toblock) {
-                            echo 'mobile_blocksonly';
-                        } ?>" id="themains">
-                        <?php
-                        // Only show main content if we are not showing anything else.
-                        if (!$toblock && !$toset) {
-                            ?>
-                    <?php if ($hasshowmobileintro && $mypagetype == 'site-index') { ?>
-                        <?php echo $PAGE->theme->settings->showmobileintro; ?>
-    <?php } ?>
-    <?php echo $OUTPUT->main_content(); ?>
-<?php } ?>
+                    <div class="region-content <?php
+                    if ($toblock) {
+                        echo 'mobile_blocksonly';
+                    }
+                    ?>" id="themains">
+                         <?php
+                         // Only show main content if we are not showing anything else.
+                         if (!$toblock && !$toset) {
+                             ?>
+    <?php if ($hasshowmobileintro && $mypagetype == 'site-index') { ?>
+        <?php echo $PAGE->theme->settings->showmobileintro; ?>
+                    <?php } ?>
+                    <?php echo $OUTPUT->main_content(); ?>
+                <?php } ?>
                     </div>
                 </div>
 
-                    <?php if ($gowide && $hasmyblocks && !$toset) {
-                        // If we get the true, that means load/show blocks only for tablet views only. 
-                        ?>
+<?php
+if ($gowide && $hasmyblocks && !$toset) {
+    // If we get the true, that means load/show blocks only for tablet views only. 
+    ?>
                     <div class="content-secondary">
                         <div class="tablets">
                             <h1><?php echo $PAGE->heading ?></h1>
                             <span><?php echo $PAGE->course->summary; ?></span>
                         </div>
 
-    <?php if ($hasmyblocks) { ?>
+                        <?php if ($hasmyblocks) { ?>
                             <div data-role="collapsible-set" data-theme="<?php echo $dtheme; ?>">
-                                        <?php echo $OUTPUT->blocks_for_region('myblocks') ?>
+        <?php echo $OUTPUT->blocks_for_region('myblocks') ?>
                             </div>
     <?php } ?>
 
-    <?php if ($gowide && isloggedin() && !isguestuser()) { ?>
+                                    <?php if ($gowide && isloggedin() && !isguestuser()) { ?>
 
                             <div data-role="collapsible" data-collapsed="false" data-theme="<?php echo $dtheme; ?>" data-content-theme="<?php echo $dtheme; ?>" id="profcol">
                                 <h3><?php p('' . $USER->firstname . ' ' . $USER->lastname . ''); ?></h3>
@@ -244,21 +253,21 @@ echo $OUTPUT->doctype()
 
                     <?php } else if (!isloggedin() || isguestuser()) { ?>
                             <a data-role="button" data-theme="<?php echo $dtheme; ?>" data-ajax="false" href="<?php p($CFG->wwwroot) ?>/login/index.php"><?php p(get_string('login')); ?></a>
-    <?php } ?>
+                    <?php } ?>
                     </div>
                 <?php } ?>
 
-                <?php
-                if ($toblock && !$gowide) {
-                    // Regular block load for phones + handhelds.
-                    if ($hasmyblocks) {
-                        ?><div class="headingwrap ui-bar-<?php echo $dtheme; ?> ui-footer jsetsbar">
+<?php
+if ($toblock && !$gowide) {
+    // Regular block load for phones + handhelds.
+    if ($hasmyblocks) {
+        ?><div class="headingwrap ui-bar-<?php echo $dtheme; ?> ui-footer jsetsbar">
                             <h2 class="jsets ui-title"><?php p(get_string('blocks')); ?></h2>
                         </div>
                         <div data-role="collapsible-set"><?php echo $OUTPUT->blocks_for_region('myblocks') ?></div><?php
-                    }
-                }
-                ?>
+            }
+        }
+?>
             </div>
             <!-- end main content -->
 
@@ -269,8 +278,8 @@ echo $OUTPUT->doctype()
                         <li><a id="mycal" class="callink" href="<?php p($CFG->wwwroot) ?>/calendar/view.php" data-icon="info" data-iconpos="top" ><?php p(get_string('calendar', 'calendar')); ?></a></li>
 <?php if (!empty($CFG->messaging)) { ?>
                             <li><a id="mymess" href="<?php p($CFG->wwwroot) ?>/message/index.php" data-iconpos="top" data-icon="mymessage" ><?php p(get_string('messages', 'message')); ?></a></li>
-                <?php } ?>
-                <?php if ($mypagetype != 'site-index') { ?>
+<?php } ?>
+<?php if ($mypagetype != 'site-index') { ?>
                             <li><a href="#" data-inline="true" data-role="button" data-iconpos="top" data-icon="arrow-u" id="uptotop"><?php p(get_string('up')); ?></a></li>
                 <?php } ?>
                     </ul>
