@@ -356,6 +356,12 @@ $('#page-mod-assign-viewPAGE').live('pagebeforecreate', function() {
     $('div.submissionlinks a').attr('data-role', 'button');
 });
 
+// Page module only stuff.
+$('#page-mod-page-viewPAGE').live('pagebeforecreate', function() {
+    "use strict";
+    $('div.box a').attr('data-role', 'button');
+});
+
 // Hotpot page only stuff.
 $('div.path-mod-hotpot').live('pagebeforecreate', function() {
     $('.path-mod-hotpot button').attr("data-role", "none");
@@ -376,12 +382,6 @@ $('#page-mod-book-viewPAGE').live('pagebeforecreate', function() {
 $('#page-mod-choice-viewPAGE').live('pagebeforecreate', function() {
     $('.reportlink a').attr('data-role', 'button');
 });
-
-//$('#page-mod-choice-reportPAGE').live('pagebeforecreate', function() {
-//    $('.user input').each( function(){
-//       var 
-//    });
-//});
 
 // Lesson only stuff.
 $('#page-mod-lesson-editPAGE').live('pagebeforecreate', function() {

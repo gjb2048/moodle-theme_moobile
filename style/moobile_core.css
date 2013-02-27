@@ -1888,5 +1888,9 @@ div.tablets, #sliderdiv, .has-myblocks .jsetsbar {
     border-width: 0px;
 }
 
+.resourceworkaround, .urlworkaround, .modified {
+    color: inherit;
+}
+
 /** Custom CSS **/
 [[setting:customcss]]
