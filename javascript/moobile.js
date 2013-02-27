@@ -48,6 +48,8 @@ $('div').live('pagebeforecreate', function() {
     // Turn off ajax on all forms.
     $('form').attr("data-ajax", "false");
 
+    $('div.box a').attr('data-role', 'button').attr('data-mini', 'true');
+
     //$('#page-site-indexPAGE a').attr("data-ajax", "false"); // For Collapsed Topics to work.
 
     $('#page-site-indexPAGE .teachers').remove(); // Remove listed teachers as their rendering causes a bottom border issue.
@@ -359,7 +361,7 @@ $('#page-mod-assign-viewPAGE').live('pagebeforecreate', function() {
 // Page module only stuff.
 $('#page-mod-page-viewPAGE').live('pagebeforecreate', function() {
     "use strict";
-    $('div.box a').attr('data-role', 'button');
+    $('div.box a').attr('data-ajax', 'false');  // MDL-38226
 });
 
 // Hotpot page only stuff.

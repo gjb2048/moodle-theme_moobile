@@ -146,18 +146,26 @@ echo $OUTPUT->doctype()
                 <!-- start navbar -->
                 <div data-role="navbar">
                     <ul>
+                        <?php $nonavitems = true; ?>
                         <?php if (!$gowide && !$hasmyblocks && !$toblock && $mypagetype == "mod-quiz-attempt" || !$gowide && !$hasmyblocks && !$toblock && $mylayoutype != "incourse") { ?>
                             <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all blockload" href="<?php echo $urlblocks->out(); ?>"><?php p(get_string('blocks')); ?></a></li>
+                            <?php $nonavitems = false; ?>
                         <?php } ?>
-                        <?php if (!$toset) { ?>
+                        <?php if (isloggedin() && !$toset) { ?>
                             <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all" href="<?php echo $urlsettings->out(); ?>"><?php p(get_string('settings')); ?></a></li>
+                            <?php $nonavitems = false; ?>
                         <?php } ?>
                         <?php if ($jumptocurrent == 'true' && !$toblock && !$toset) { ?>
                             <li><a data-theme="<?php echo $dtheme; ?>" class="ui-btn-corner-all jumptocurrent" href="#"><?php p(get_string('jump')); ?></a></li>
+                            <?php $nonavitems = false; ?>
                         <?php } ?>
-<?php if (isloggedin() && $hasnavbar) { ?>
+                        <?php if (isloggedin() && $hasnavbar) { ?>
                             <li><?php echo $OUTPUT->navbar(); ?></li>
-<?php } ?>
+                            <?php $nonavitems = false; ?>
+                        <?php } ?>
+                        <?php if ($nonavitems) { ?>
+                            <li>&nbsp;</li> <!-- Display something if nothing is shown -->
+                        <?php } ?>
                     </ul>
                 </div>
                 <!-- end navbar -->

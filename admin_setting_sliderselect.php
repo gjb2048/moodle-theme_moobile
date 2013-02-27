@@ -167,8 +167,7 @@ class admin_setting_sliderselect extends admin_setting {
             $selecthtml .= '</select>';
         } else {
             global $PAGE, $CFG;
-            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery-1.8.2.min.js');
-            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/jquery.bxslider/jquery.bxslider.min.js');
+            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/yui_bxslider_'. $this->settingname .'.js');
 
             $selecthtml = html_writer::start_tag('input', array('type' => 'text', 'style' => 'display:none;', 'id' => $this->get_id(), 'class' => $this->themename . $this->settingname . 'input', 'name' => $this->get_full_name(), 'value' => $data));
             $selecthtml .= html_writer::end_tag('input'); // Getting odd results with html_writer::empty_tag in terms of non-closure and tag then becoming a container for everything afterwards.
@@ -192,7 +191,6 @@ class admin_setting_sliderselect extends admin_setting {
             // Helper to get bxslider css:
             $selecthtml .= html_writer::start_tag('div', array('id' => $this->themename . $this->settingname . 'wwwroot', 'style' => 'display:none;', 'wwwroot' => $CFG->wwwroot, 'startslide' => $startslide, 'width' => $this->imagewidth));
             $selecthtml .= html_writer::end_tag('div');  // Needed but cannot spot why to put the description outside of form-setting.
-            $PAGE->requires->js('/theme/' . $this->themename . '/' . $this->javascriptfolder . '/' . $this->themename . '_bxslider_' . $this->settingname . '.js');
         }
         return array($selecthtml, $warning);
     }

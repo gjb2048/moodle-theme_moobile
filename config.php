@@ -174,9 +174,7 @@ if ($thisdevice == "default" || $thisdevice == "tablet" || optional_param('moobi
 
 // Add the required JavaScript to the page
 $THEME->javascripts = array(
-    'jquery-1.8.2.min',
-    'moobile',
-    'jquery.mobile-1.2.0_moobile'
+    'yui_moobile'
 );
 
 // Sets a custom render factory to use with the theme, used when working with custom renderers.
