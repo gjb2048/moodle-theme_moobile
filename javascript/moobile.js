@@ -146,7 +146,7 @@ $('div#page-course-view-topcollPAGE').live('pagebeforecreate', function() {
     "use strict";
 
     $.getScript(siteurl+'/theme/moobile/javascript/topcoll_module.js', function() {
-		
+
         var topcollmobiledata = $('#topcoll_mobile_data');
         var thecourseid = topcollmobiledata.attr('courseid');
         var thetogglestate = topcollmobiledata.attr('togglestate');
@@ -185,15 +185,15 @@ $('div.path-course-view, .path-course-view div.generalpage').live('pagebeforecre
         return false;
     });
 
-	$('.contentafterlink a.autolink').each(function() {
-	    // Clone us such that the split list button remains the same after the strip.
-	    var us = $(this).clone();
-		$(this).parent().append(us);
-	    // Strip out the inner 'a.autolink' of a 'p' on a 'contentafterlink' such that descriptions are shown.
-	    $(this).replaceWith(function() {
-		    return $(this).contents();
-		});
-	});
+    $('.contentafterlink a.autolink').each(function() {
+        // Clone us such that the split list button remains the same after the strip.
+        var us = $(this).clone();
+        $(this).parent().append(us);
+        // Strip out the inner 'a.autolink' of a 'p' on a 'contentafterlink' such that descriptions are shown.
+        $(this).replaceWith(function() {
+            return $(this).contents();
+        });
+    });
 });
 
 // Forum listing only stuff.
@@ -351,47 +351,52 @@ $('#page-mod-assignment-viewPAGE').live('pagebeforecreate', function() {
     $('#page-mod-assignment-viewPAGE div[rel="upload.php"]').parent().attr("action", siteurl + '/mod/assignment/upload.php');
 });
 
+$('#page-mod-assign-viewPAGE').live('pagebeforecreate', function() {
+    "use strict";
+    $('div.submissionlinks a').attr('data-role', 'button');
+});
+
 // Hotpot page only stuff.
 $('div.path-mod-hotpot').live('pagebeforecreate', function() {
     $('.path-mod-hotpot button').attr("data-role", "none");
 });
-	
+
 // Book only stuff.
 $('#page-mod-book-viewPAGE').live('pagebeforecreate', function() {
     // Fix 'Exit book' link not working with blunderbuss approach.
     $('a').unbind().click(function(event) {
         event.preventDefault();
-        var url = $(this).attr('href');	
+        var url = $(this).attr('href');    
         //console.log(url);
         window.location.href = url;
     });
-});	
+});    
 
 // Choice only stuff.
 $('#page-mod-choice-viewPAGE').live('pagebeforecreate', function() {
     $('.reportlink a').attr('data-role', 'button');
 });
-	
+
 //$('#page-mod-choice-reportPAGE').live('pagebeforecreate', function() {
 //    $('.user input').each( function(){
-//	   var 
-//	});
+//       var 
+//    });
 //});
 
 // Lesson only stuff.
 $('#page-mod-lesson-editPAGE').live('pagebeforecreate', function() {
     $('.firstpageoptions a').attr('data-role', 'button');
-	$('.addlinks').attr('data-role', 'controlgroup').attr('data-mini', 'true').attr('data-type', 'horizontal').attr('data-mini', 'true');
-	
-	// Strip out the text dividers between the 'a' tags.
-	$('.addlinks').each(function() {
+    $('.addlinks').attr('data-role', 'controlgroup').attr('data-mini', 'true').attr('data-type', 'horizontal').attr('data-mini', 'true');
+    
+    // Strip out the text dividers between the 'a' tags.
+    $('.addlinks').each(function() {
         var $children = $(this).children();
         $(this).html("").append($children);
-	});
+    });
 
-	$('.addlinks a').each(function() {
+    $('.addlinks a').each(function() {
         $(this).attr('data-role', 'button');
-	});
+    });
 });
 
 // Functions below does stuff after creating page for some cleaning...
@@ -401,7 +406,7 @@ $('body').live('pageinit', function() {
     if ($('body').hasClass('ajaxno')) {
         $.mobile.ajaxEnabled = false;
     }
-	
+    
     $('div#page-site-indexPAGE .unlist li:last-child div.coursebox h3 a').addClass("ui-corner-bottom ui-controlgroup-last");
     $('.path-calendar div.ui-radio label:first-child, .path-mod-lesson div.ui-radio label:first-child, #page-mod-wiki-createPAGE div.ui-radio label:first-child').addClass("afirst");
     $('.forumpost div.author a').removeAttr('data-role');
