@@ -1022,6 +1022,7 @@
 			// store the old index
 			slider.oldIndex = slider.active.index;
 			// if slideIndex is less than zero, set active index to last child (this happens during infinite loop)
+			console.log('gtsBongo1:'+slider.active.index);
 			if(slideIndex < 0){
 				slider.active.index = getPagerQty() - 1;
 			// if slideIndex is greater than children length, set active index to 0 (this happens during infinite loop)
@@ -1031,6 +1032,7 @@
 			}else{
 				slider.active.index = slideIndex;
 			}
+			console.log('gtsBongo2:'+slider.active.index);
 			// onSlideBefore, onSlideNext, onSlidePrev callbacks
 			slider.settings.onSlideBefore(slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
 			if(direction == 'next'){
@@ -1106,7 +1108,7 @@
 		el.goToNextSlide = function(){
 			// if infiniteLoop is false and last page is showing, disregard call
 			if (!slider.settings.infiniteLoop && slider.active.last) return;
-			var pagerIndex = slider.active.index + 1;
+			var pagerIndex = parseInt(slider.active.index) + 1;
 			el.goToSlide(pagerIndex, 'next');
 		}
 		
@@ -1116,7 +1118,7 @@
 		el.goToPrevSlide = function(){
 			// if infiniteLoop is false and last page is showing, disregard call
 			if (!slider.settings.infiniteLoop && slider.active.index == 0) return;
-			var pagerIndex = slider.active.index - 1;
+			var pagerIndex = parseInt(slider.active.index) - 1;
 			el.goToSlide(pagerIndex, 'prev');
 		}
 		
