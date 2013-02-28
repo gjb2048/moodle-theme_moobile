@@ -51,7 +51,7 @@ YUI().use('jquery-bxslider', function(Y) {
         var width = $('div #moobilecolourswatchwwwroot').attr('width');
         $('#colourswatch-bxslider').bxSlider({
             onSlideAfter: function($slideElement, oldIndex, newIndex){
-                var value = $('.moobilecolourswatchimage-'+newIndex).attr('moobilecolourswatch');
+                var value = $('.moobilecolourswatchimage-'+parseInt(newIndex)).attr('moobilecolourswatch');  // When slide 0 in bxslider get '01' for newIndex when using right arrow in 4.0 - check for 4.1.
                 $('.moobilecolourswatchinput').attr('value', value);
             },
             startSlide: startslide,

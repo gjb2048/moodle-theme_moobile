@@ -34,7 +34,7 @@ $(document).ready(function(){
     var width = $('div #moobilecolourswatchwwwroot').attr('width');
     $('#colourswatch-bxslider').bxSlider({
         onSlideAfter: function($slideElement, oldIndex, newIndex){
-            var value = $('.moobilecolourswatchimage-'+newIndex).attr('moobilecolourswatch');
+            var value = $('.moobilecolourswatchimage-'+parseInt(newIndex)).attr('moobilecolourswatch');  // When slide 0 in bxslider get '01' for newIndex when using right arrow.
             $('.moobilecolourswatchinput').attr('value', value);
         },
         startSlide: startslide,

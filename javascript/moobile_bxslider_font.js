@@ -34,7 +34,7 @@ $(document).ready(function(){
     var width = $('div #moobilefontwwwroot').attr('width');
     $('#font-bxslider').bxSlider({
         onSlideAfter: function($slideElement, oldIndex, newIndex){
-            var value = $('.moobilefontimage-'+newIndex).attr('moobilefont');
+            var value = $('.moobilefontimage-'+parseInt(newIndex)).attr('moobilefont');  // When slide 0 in bxslider get '01' for newIndex when using right arrow.
             $('.moobilefontinput').attr('value', value);
         },
         startSlide: startslide,
