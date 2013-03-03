@@ -148,7 +148,6 @@ $('div#page-course-view-topcollPAGE').live('pagebeforecreate', function() {
     "use strict";
 
     $.getScript(siteurl+'/theme/moobile/javascript/topcoll_module.js', function() {
-
         var topcollmobiledata = $('#topcoll_mobile_data');
         var thecourseid = topcollmobiledata.attr('courseid');
         var thetogglestate = topcollmobiledata.attr('togglestate');
