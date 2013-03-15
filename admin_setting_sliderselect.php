@@ -180,7 +180,7 @@ class admin_setting_sliderselect extends admin_setting {
                 $selecthtml .= html_writer::start_tag('img', array('src' => $CFG->wwwroot . '/theme/' . $this->themename . '/pix/' . $this->settingname . '-' . $key . '.png', 'style' => 'width: ' . $this->imagewidth . 'px; height: ' . $this->imageheight . 'px', 'class' => $this->themename . $this->settingname . 'image-' . $index, $this->themename . $this->settingname => $key, 'title' => $value)); // Cannot use pix_url as theme might be different.
                 $selecthtml .= html_writer::end_tag('img');
                 $selecthtml .= html_writer::end_tag('li');
-                // the string cast is needed because key may be integer - 0 is equal to most strings!
+                // The string cast is needed because key may be integer - 0 is equal to most strings!
                 if ((string) $key == $data) {
                     $startslide = $index;
                 }

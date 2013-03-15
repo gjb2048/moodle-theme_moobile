@@ -31,6 +31,7 @@
 // Implemented MDL-33934-2 as appropriate.
 // Implemented MDL-33934-3 as appropriate.
 // Implemented MDL-31342.
+// Implemented MDL-38460.
 // Cleaned through use of http://jshint.com/.
 
 $(document).bind("mobileinit", function() {
